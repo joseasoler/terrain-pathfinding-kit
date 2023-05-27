@@ -5,6 +5,8 @@ Terrain Pathfinding Kit
 
 [Terrain Pathfinding Kit](https://steamcommunity.com/sharedfiles/filedetails/?id=2876541977) is a [RimWorld](https://rimworldgame.com/) mod that can be used to define terrain specific pathfinding rules.
 
+This mod is an overhaul of [TerrainMovementKit](https://steamcommunity.com/sharedfiles/filedetails/?id=2048567351) and [SwimmingKit](https://steamcommunity.com/sharedfiles/filedetails/?id=1542399915), with a focus on performance and mod compatibility.
+
 Development
 ---
 
