@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<ProjectGuid>{25B91723-8F2F-4CF1-97B4-7788C74B1D9D}</ProjectGuid>
-		<RootNamespace>TPK</RootNamespace>
+		<RootNamespace>TerrainPathfindingKit</RootNamespace>
 		<AssemblyName>TerrainPathfindingKit</AssemblyName>
 		<OutputType>Library</OutputType>
 		<TargetFramework>net472</TargetFramework>

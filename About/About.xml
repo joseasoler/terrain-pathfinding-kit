@@ -6,7 +6,7 @@
 		<li>1.4</li>
 	</supportedVersions>
 	<url>ToDo</url>
-	<packageId>joseasoler.tpk</packageId>
+	<packageId>terrain.pathfinding.kit</packageId>
 	<description><![CDATA[A mod for defining terrain specific pathfinding rules.]]></description>
 	<modDependencies>
 		<li>
