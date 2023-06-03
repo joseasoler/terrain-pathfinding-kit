@@ -139,6 +139,11 @@ namespace TerrainPathfindingKit.PathGrids
 
 		protected abstract int TerrainCostAt(int cellIndex);
 
+		public virtual bool CanEnterCell(IntVec3 cell)
+		{
+			return true;
+		}
+
 		/// <summary>
 		/// AvoidGrid to use with this path grid.
 		/// </summary>

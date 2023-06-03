@@ -29,6 +29,12 @@ namespace TerrainPathfindingKit.PathGrids
 			return AquaticTerrainCost.Cost[Map.terrainGrid.TerrainAt(cellIndex)];
 		}
 
+		public override bool CanEnterCell(IntVec3 cell)
+		{
+			var terrain = Map.terrainGrid.TerrainAt(Map.cellIndices.CellToIndex(cell));
+			return AquaticTerrainCost.IsAquatic(terrain);
+		}
+
 		public override ByteGrid AvoidGrid(ByteGrid defaultGrid)
 		{
 			return defaultGrid != null ? _combinedAvoidGrid : _aquaticAvoidGrid;
