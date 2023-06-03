@@ -16,12 +16,12 @@ namespace TerrainPathfindingKit.PathGrids
 
 		public override int ExtraDraftedPerceivedPathCost(TerrainDef def)
 		{
-			return AquaticTerrainCost.IsAquatic(def) ? 0 : def.extraDraftedPerceivedPathCost;
+			return AquaticTerrainCost.PerceivedPathCost(def, def.extraDraftedPerceivedPathCost);
 		}
 
 		public override int ExtraNonDraftedPerceivedPathCost(TerrainDef def)
 		{
-			return AquaticTerrainCost.IsAquatic(def) ? 0 : def.extraNonDraftedPerceivedPathCost;
+			return AquaticTerrainCost.PerceivedPathCost(def, def.extraNonDraftedPerceivedPathCost);
 		}
 
 		protected override int TerrainCostAt(int cellIndex)

@@ -12,7 +12,7 @@ namespace TerrainPathfindingKit.PathGrids
 		private const int ShallowCost = 5;
 		private const int MovingCost = 10;
 		private const int MarshCost = 20;
-		private const int BaseLandCost = 4000;
+		private const int BaseLandCost = 2000;
 
 		// Any terrain with these tags can be traversed by water creatures.
 		private static readonly HashSet<string> WaterTerrainTags = new HashSet<string> {"Water", "River"};
@@ -29,6 +29,11 @@ namespace TerrainPathfindingKit.PathGrids
 		};
 
 		public static Dictionary<TerrainDef, int> Cost = new Dictionary<TerrainDef, int>();
+
+		public static int PerceivedPathCost(TerrainDef def, int originalCost)
+		{
+			return IsAquatic(def) ? 0 : originalCost + BaseLandCost;
+		}
 
 		public static bool IsAquatic(TerrainDef def)
 		{
