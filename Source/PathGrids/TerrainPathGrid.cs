@@ -91,6 +91,9 @@ namespace TerrainPathfindingKit.PathGrids
 			int snowCost = SnowUtility.MovementTicksAddOn(Map.snowGrid.GetCategory(cell));
 			totalCost = Math.Max(totalCost, snowCost);
 			totalCost += _fires.CostAt(cellIndex); // perceivedStatic = true
+
+			// Update the custom avoid grid.
+			UpdateAvoidGridCell(cellIndex);
 		}
 
 		/// <summary>
@@ -135,5 +138,30 @@ namespace TerrainPathfindingKit.PathGrids
 		}
 
 		protected abstract int TerrainCostAt(int cellIndex);
+
+		/// <summary>
+		/// AvoidGrid to use with this path grid.
+		/// </summary>
+		/// <param name="defaultGrid">Vanilla path grid.</param>
+		/// <returns>A potentially customized avoid grid.</returns>
+		public virtual ByteGrid AvoidGrid(ByteGrid defaultGrid)
+		{
+			return defaultGrid;
+		}
+
+		/// <summary>
+		/// Updates the custom avoid grid after a change a path grid change.
+		/// </summary>
+		/// <param name="cellIndex">Cell modified in the path grid.</param>
+		public virtual void UpdateAvoidGridCell(int cellIndex)
+		{
+		}
+
+		/// <summary>
+		/// Regenerate the custom avoid grid after a vanilla avoid grid update.
+		/// </summary>
+		public virtual void RegenerateAvoidGrid()
+		{
+		}
 	}
 }

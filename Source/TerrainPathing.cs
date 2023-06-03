@@ -16,7 +16,7 @@ namespace TerrainPathfindingKit
 
 		private PawnPathingType _pawnPathing = new PawnPathingType();
 
-		private TerrainPathGrid _aquaticGrid;
+		private AquaticPathGrid _aquaticGrid;
 
 		/// <summary>
 		/// Pre-initialized pathing contexts to avoid extra allocations.
@@ -122,6 +122,11 @@ namespace TerrainPathfindingKit
 		public void UpdateFire(IntVec3 position, bool spawned)
 		{
 			_fires.Update(position, spawned);
+		}
+
+		public void RegenerateAvoidGrids()
+		{
+			_aquaticGrid.RegenerateAvoidGrid();
 		}
 	}
 }

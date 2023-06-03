@@ -24,6 +24,7 @@
 		<Compile Include="DefOfs\Terrains.cs" />
 		<Compile Include="Getter.cs" />
 		<Compile Include="Mod\TerrainPathfindingKit.cs" />
+		<Compile Include="Patches\AvoidGrid_Regenerate.cs" />
 		<Compile Include="Patches\Fire_RecalcPathsOnAndAroundMe.cs" />
 		<Compile Include="Patches\PathFinder_CurrentGrid_Util.cs" />
 		<Compile Include="Patches\PathFinder_FindPath.cs" />
@@ -31,6 +32,7 @@
 		<Compile Include="Patches\Pathing_For_Pawn.cs" />
 		<Compile Include="Patches\Pathing_For_TraverseParms.cs" />
 		<Compile Include="Patches\Pathing_RecalculatePerceivedPathCostAt.cs" />
+		<Compile Include="Patches\PawnUtility_GetAvoidGrid.cs" />
 		<Compile Include="Patches\Pawn_PathFollower_CostToMoveIntoCell.cs" />
 		<Compile Include="Patches\RegionCostCalculator_GetCellCostFast.cs" />
 		<Compile Include="PathGrids\AquaticPathGrid.cs" />
