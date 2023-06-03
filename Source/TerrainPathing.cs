@@ -83,6 +83,7 @@ namespace TerrainPathfindingKit
 		/// <param name="haveNotified">True if a past Path Grid already needed to notify changes.</param>
 		public void RecalculatePerceivedPathCostAt(IntVec3 cell, ref bool haveNotified)
 		{
+			_things.Update(cell);
 			_aquaticGrid.RecalculatePerceivedPathCostAt(cell, ref haveNotified);
 		}
 
