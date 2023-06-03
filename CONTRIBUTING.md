@@ -23,7 +23,7 @@ Please use the [issue tracker](https://github.com/joseasoler/terrain-pathfinding
 Questions
 ---
 
-Questions about the mod can be asked in the discussion thread of the mod in the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2876541977) or using the [issue tracker](https://github.com/joseasoler/terrain-pathfinding-kit/issues).
+Questions about the mod can be asked in the discussion thread of the mod in the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) or using the [issue tracker](https://github.com/joseasoler/terrain-pathfinding-kit/issues).
 
 
 Contributions

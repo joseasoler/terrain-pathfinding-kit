@@ -7,7 +7,7 @@
 	</supportedVersions>
 	<url>ToDo</url>
 	<packageId>terrain.pathfinding.kit</packageId>
-	<description><![CDATA[A mod for defining terrain specific pathfinding rules.]]></description>
+	<description><![CDATA[A mod that can add custom movement types to your pawns.]]></description>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>

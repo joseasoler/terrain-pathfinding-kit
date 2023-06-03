@@ -3,7 +3,7 @@ Terrain Pathfinding Kit
 
 [![RimWorld](https://img.shields.io/badge/RimWorld-1.4-informational)](https://rimworldgame.com/) [![Steam Downloads](https://img.shields.io/steam/downloads/ToDo)](https://steamcommunity.com/sharedfiles/filedetails/?id=2813426619) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-[Terrain Pathfinding Kit](https://steamcommunity.com/sharedfiles/filedetails/?id=2876541977) is a [RimWorld](https://rimworldgame.com/) mod that can be used to define terrain specific pathfinding rules.
+[Terrain Pathfinding Kit](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod that can add custom movement types to your pawns.
 
 This mod is an overhaul of [TerrainMovementKit](https://steamcommunity.com/sharedfiles/filedetails/?id=2048567351) and [SwimmingKit](https://steamcommunity.com/sharedfiles/filedetails/?id=1542399915), with a focus on performance and mod compatibility.
 
