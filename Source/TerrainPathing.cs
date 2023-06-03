@@ -12,8 +12,8 @@ namespace TerrainPathfindingKit
 	/// </summary>
 	public class TerrainPathing : MapComponent
 	{
-		public FireGrid Fires;
-		public ThingsGrid Things;
+		private readonly FireGrid _fires;
+		private readonly ThingsGrid _things;
 
 		private PawnPathingType _pawnPathing = new PawnPathingType();
 
@@ -26,9 +26,9 @@ namespace TerrainPathfindingKit
 
 		public TerrainPathing(Map map) : base(map)
 		{
-			Fires = new FireGrid(map);
-			Things = new ThingsGrid(map);
-			_aquaticGrid = new AquaticPathGrid(map, Fires, Things);
+			_fires = new FireGrid(map);
+			_things = new ThingsGrid(map);
+			_aquaticGrid = new AquaticPathGrid(map, _fires, _things);
 			_contexts = new List<PathingContext>();
 			_contexts.Add(null); // PathingType.Default.
 			_contexts.Add(new PathingContext(map, _aquaticGrid.Grid));
@@ -84,6 +84,16 @@ namespace TerrainPathfindingKit
 		public void RecalculatePerceivedPathCostAt(IntVec3 cell, ref bool haveNotified)
 		{
 			_aquaticGrid.RecalculatePerceivedPathCostAt(cell, ref haveNotified);
+		}
+
+		/// <summary>
+		/// Update the fire grid after a fire instance is created or removed.
+		/// </summary>
+		/// <param name="position">Position of the fire.</param>
+		/// <param name="spawned">True iff the fire has just spawned. False if it is being destroyed.</param>
+		public void UpdateFire(IntVec3 position, bool spawned)
+		{
+			_fires.Update(position, spawned);
 		}
 	}
 }
