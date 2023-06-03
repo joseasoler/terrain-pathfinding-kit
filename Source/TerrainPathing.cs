@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TerrainPathfindingKit.CommonGrids;
 using TerrainPathfindingKit.PathGrids;
@@ -29,9 +28,37 @@ namespace TerrainPathfindingKit
 			_fires = new FireGrid(map);
 			_things = new ThingsGrid(map);
 			_aquaticGrid = new AquaticPathGrid(map, _fires, _things);
-			_contexts = new List<PathingContext>();
-			_contexts.Add(null); // PathingType.Default.
-			_contexts.Add(new PathingContext(map, _aquaticGrid.Grid));
+			_contexts = new List<PathingContext>
+			{
+				null, // PathingType.Default.
+				new PathingContext(map, _aquaticGrid.Grid)
+			};
+		}
+
+		public override void MapGenerated()
+		{
+			Getter.AddMap(map, this);
+		}
+
+		public override void ExposeData()
+		{
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				Getter.AddMap(map, this);
+			}
+		}
+
+		public override void MapRemoved()
+		{
+			Getter.RemoveMap(map);
+		}
+
+		/// <summary>
+		/// Map.FinalizeInit is the only caller of the vanilla version of this method.
+		/// </summary>
+		public override void FinalizeInit()
+		{
+			RecalculateAllPerceivedPathCosts();
 		}
 
 		public PathingType TypeFor(Pawn pawn)

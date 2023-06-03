@@ -15,7 +15,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static void TerrainRecalculatePerceivedPathCostAt(Pathing instance, IntVec3 c, ref bool haveNotified)
 		{
-			instance.Normal.map.GetComponent<TerrainPathing>().RecalculatePerceivedPathCostAt(c, ref haveNotified);
+			Getter.GetTerrainPathing(instance.Normal.map).RecalculatePerceivedPathCostAt(c, ref haveNotified);
 		}
 
 		internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

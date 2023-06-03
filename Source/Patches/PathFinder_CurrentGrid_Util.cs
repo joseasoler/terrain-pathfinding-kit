@@ -22,7 +22,7 @@ namespace TerrainPathfindingKit.Patches
 				return;
 			}
 
-			var terrainPathing = pawn.Map.GetComponent<TerrainPathing>();
+			var terrainPathing = Getter.GetTerrainPathing(pawn.Map);
 			var pathingType = terrainPathing.TypeFor(pawn);
 			_currentGrid = terrainPathing.GridFor(pathingType);
 		}

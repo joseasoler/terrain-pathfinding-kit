@@ -15,7 +15,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static int TerrainCalculatedCostAt(Map map, Pawn pawn, IntVec3 cell)
 		{
-			var terrainPathing = map.GetComponent<TerrainPathing>();
+			var terrainPathing = Getter.GetTerrainPathing(map);
 			var prevCell = pawn.Position;
 
 			var type = terrainPathing.TypeFor(pawn);

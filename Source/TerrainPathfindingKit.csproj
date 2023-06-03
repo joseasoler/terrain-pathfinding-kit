@@ -22,6 +22,7 @@
 		<Compile Include="CommonGrids\FireGrid.cs" />
 		<Compile Include="CommonGrids\ThingsGrid.cs" />
 		<Compile Include="DefOfs\Terrains.cs" />
+		<Compile Include="Getter.cs" />
 		<Compile Include="Mod\TerrainPathfindingKit.cs" />
 		<Compile Include="Patches\Fire_RecalcPathsOnAndAroundMe.cs" />
 		<Compile Include="Patches\PathFinder_CurrentGrid_Util.cs" />
@@ -36,7 +37,6 @@
 		<Compile Include="PathGrids\AquaticTerrainCost.cs" />
 		<Compile Include="PathGrids\TerrainPathGrid.cs" />
 		<Compile Include="Logging.cs" />
-		<Compile Include="Patches\Pathing_RecalculateAllPerceivedPathCosts.cs" />
 		<Compile Include="PathingExtension.cs" />
 		<Compile Include="PawnPathingType.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />

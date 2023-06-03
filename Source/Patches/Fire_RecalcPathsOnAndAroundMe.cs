@@ -11,7 +11,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static void Prefix(Fire __instance)
 		{
-			__instance.Map.GetComponent<TerrainPathing>().UpdateFire(__instance.Position, __instance.Spawned);
+			Getter.GetTerrainPathing(__instance.Map).UpdateFire(__instance.Position, __instance.Spawned);
 		}
 	}
 }
