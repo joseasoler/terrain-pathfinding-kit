@@ -1,11 +1,11 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("TerrainPathfindingKit")]
+[assembly: AssemblyTitle("Terrain Pathfinding Kit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TerrainPathfindingKit")]
+[assembly: AssemblyProduct("Terrain Pathfinding Kit")]
 [assembly: AssemblyCopyright("Copyright © 2023 Terrain Pathfinding Kit contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

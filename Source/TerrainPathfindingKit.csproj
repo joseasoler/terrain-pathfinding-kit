@@ -19,14 +19,46 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Include="CommonGrids\FireGrid.cs" />
+		<Compile Include="CommonGrids\ThingsGrid.cs" />
+		<Compile Include="DefOfs\Terrains.cs" />
+		<Compile Include="Mod\TerrainPathfindingKit.cs" />
+		<Compile Include="Patches\Fire_RecalcPathsOnAndAroundMe.cs" />
+		<Compile Include="Patches\PathFinder_CurrentGrid_Util.cs" />
+		<Compile Include="Patches\PathFinder_FindPath.cs" />
+		<Compile Include="Patches\Pathing_For_Util.cs" />
+		<Compile Include="Patches\Pathing_For_Pawn.cs" />
+		<Compile Include="Patches\Pathing_For_TraverseParms.cs" />
+		<Compile Include="Patches\Pathing_RecalculatePerceivedPathCostAt.cs" />
+		<Compile Include="Patches\Pawn_PathFollower_CostToMoveIntoCell.cs" />
+		<Compile Include="Patches\RegionCostCalculator_GetCellCostFast.cs" />
+		<Compile Include="PathGrids\AquaticPathGrid.cs" />
+		<Compile Include="PathGrids\AquaticTerrainCost.cs" />
+		<Compile Include="PathGrids\TerrainPathGrid.cs" />
+		<Compile Include="Logging.cs" />
+		<Compile Include="Patches\Pathing_RecalculateAllPerceivedPathCosts.cs" />
+		<Compile Include="PathingExtension.cs" />
+		<Compile Include="PawnPathingType.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="TerrainPathing.cs" />
+		<Compile Include="PathingType.cs" />
 		<Reference Include="System" />
+		<PackageReference Include="Krafs.Publicizer" Version="2.2.1" />
 		<PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
 		<Reference Include="Assembly-CSharp">
 			<HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
 			<HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\RimWorldLinux_Data\Managed\Assembly-CSharp.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+			<HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\RimWorldLinux_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Publicize Include="Assembly-CSharp:Verse.RegionDirtyer.Notify_WalkabilityChanged" />
+		<Publicize Include="Assembly-CSharp:Verse.AI.PathGrid.IsPathCostIgnoreRepeater" />
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
