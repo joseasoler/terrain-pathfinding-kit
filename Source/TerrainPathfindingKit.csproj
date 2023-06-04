@@ -21,11 +21,13 @@
 	<ItemGroup>
 		<Compile Include="CommonGrids\FireGrid.cs" />
 		<Compile Include="CommonGrids\ThingsGrid.cs" />
+		<Compile Include="DefOfs\Jobs.cs" />
 		<Compile Include="DefOfs\Terrains.cs" />
 		<Compile Include="Getter.cs" />
 		<Compile Include="Mod\TerrainPathfindingKit.cs" />
 		<Compile Include="Patches\AvoidGrid_Regenerate.cs" />
 		<Compile Include="Patches\Fire_RecalcPathsOnAndAroundMe.cs" />
+		<Compile Include="Patches\JobGiver_Wander_TryGiveJob.cs" />
 		<Compile Include="Patches\PawnDestinationReservationManager_CanReserve.cs" />
 		<Compile Include="Patches\Reachability_CanReach.cs" />
 		<Compile Include="Patches\PathFinder_CurrentGrid_Util.cs" />
@@ -62,6 +64,8 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Publicize Include="Assembly-CSharp:Verse.RegionDirtyer.Notify_WalkabilityChanged" />
+		<Publicize Include="Assembly-CSharp:Verse.AI.JobGiver_Wander.ticksBetweenWandersRange" />
+		<Publicize Include="Assembly-CSharp:Verse.AI.JobGiver_Wander.reportStringOverride" />
 		<Publicize Include="Assembly-CSharp:Verse.AI.PathGrid.IsPathCostIgnoreRepeater" />
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

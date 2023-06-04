@@ -1,3 +1,4 @@
+using System;
 using TerrainPathfindingKit.CommonGrids;
 using Verse;
 
@@ -26,7 +27,8 @@ namespace TerrainPathfindingKit.PathGrids
 
 		protected override int TerrainCostAt(int cellIndex)
 		{
-			return AquaticTerrainCost.Cost[Map.terrainGrid.TerrainAt(cellIndex)];
+			var terrain = Map.terrainGrid.TerrainAt(cellIndex);
+			return AquaticTerrainCost.Cost[terrain];
 		}
 
 		public override bool CanEnterCell(IntVec3 cell)

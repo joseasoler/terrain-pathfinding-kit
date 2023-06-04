@@ -24,7 +24,8 @@ namespace TerrainPathfindingKit
 
 			if (type == PathingType.Default || type == PathingType.Count)
 			{
-				yield return $"PathingExtension: Using {Enum.GetName(typeof(PathingType), type)} as a type is not allowed.";
+				yield return Logging.Prefixed(
+					$"PathingExtension: Using {Enum.GetName(typeof(PathingType), type)} as a type is not allowed.");
 			}
 		}
 	}

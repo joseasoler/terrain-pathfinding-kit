@@ -22,7 +22,7 @@ namespace TerrainPathfindingKit
 
 		public static TerrainPathing GetTerrainPathing(Map map)
 		{
-			return _terrainPathings[map.uniqueID];
+			return _terrainPathings.TryGetValue(map.uniqueID, out TerrainPathing value) ? value : null;
 		}
 	}
 }

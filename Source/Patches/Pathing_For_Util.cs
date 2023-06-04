@@ -11,15 +11,20 @@ namespace TerrainPathfindingKit.Patches
 		public static bool Prefix(Pathing instance, ref PathingContext result, Pawn pawn)
 		{
 			var terrainPathing = Getter.GetTerrainPathing(instance.Normal.map);
-			var pathingType = terrainPathing.TypeFor(pawn);
-			var context = terrainPathing.ContextFor(pathingType);
-			if (context != null)
+			if (terrainPathing == null)
 			{
-				result = context;
-				return false;
+				return true;
 			}
 
-			return true;
+			var pathingType = terrainPathing.TypeFor(pawn);
+			var context = terrainPathing.ContextFor(pathingType);
+			if (context == null)
+			{
+				return true;
+			}
+
+			result = context;
+			return false;
 		}
 	}
 }

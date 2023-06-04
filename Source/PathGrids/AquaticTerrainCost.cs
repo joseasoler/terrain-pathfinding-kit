@@ -74,6 +74,8 @@ namespace TerrainPathfindingKit.PathGrids
 					Cost[terrainDef] = ShallowCost;
 				}
 			}
+
+			Logging.Debug($"Initialized {nameof(AquaticTerrainCost)}: {Cost.Count} terrains.");
 		}
 	}
 }

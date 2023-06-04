@@ -11,8 +11,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static void Postfix(AvoidGrid __instance)
 		{
-			var terrainPathing = Getter.GetTerrainPathing(__instance.map);
-			terrainPathing.RegenerateAvoidGrids();
+			Getter.GetTerrainPathing(__instance.map)?.RegenerateAvoidGrids();
 		}
 	}
 }

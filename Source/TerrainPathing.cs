@@ -35,30 +35,21 @@ namespace TerrainPathfindingKit
 			};
 		}
 
-		public override void MapGenerated()
-		{
-			Getter.AddMap(map, this);
-		}
-
-		public override void ExposeData()
-		{
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
-			{
-				Getter.AddMap(map, this);
-			}
-		}
-
-		public override void MapRemoved()
-		{
-			Getter.RemoveMap(map);
-		}
-
 		/// <summary>
-		/// Map.FinalizeInit is the only caller of the vanilla version of this method.
+		/// After the map is generated or loaded, start accepting pathfinding update calls.
 		/// </summary>
 		public override void FinalizeInit()
 		{
+			Getter.AddMap(map, this);
 			RecalculateAllPerceivedPathCosts();
+		}
+
+		/// <summary>
+		/// Clean up the map component cache and stop accepting pathfinding update calls.
+		/// </summary>
+		public override void MapRemoved()
+		{
+			Getter.RemoveMap(map);
 		}
 
 		public PathingType TypeFor(Pawn pawn)

@@ -16,6 +16,12 @@ namespace TerrainPathfindingKit
 			return Prefix + original;
 		}
 
+		public static void Debug(string message)
+		{
+			// ToDo configuration variable.
+			Notice(message);
+		}
+
 		public static void Notice(string message)
 		{
 			Log.Message(Prefixed(message));
