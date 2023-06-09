@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimWorld;
+using TerrainPathfindingKit.Caches;
 using TerrainPathfindingKit.DefOfs;
 using TerrainPathfindingKit.PathGrids;
 using Verse;
@@ -9,7 +10,6 @@ namespace TerrainPathfindingKit.Patches
 {
 	/// <summary>
 	/// Inject a new job responsible for seeking safe terrain.
-	/// This transpiler overrides the Wait_Wander generation in the vanilla code.
 	/// </summary>
 	[HarmonyPatch(typeof(JobGiver_Wander), "TryGiveJob")]
 	internal static class JobGiver_Wander_TryGiveJob
@@ -18,15 +18,14 @@ namespace TerrainPathfindingKit.Patches
 		{
 			if (__result != null && __result.def == JobDefOf.Wait_Wander)
 			{
-				var terrainPathing = Getter.GetTerrainPathing(pawn.Map);
-				var pathingType = terrainPathing.TypeFor(pawn);
-				var grid = terrainPathing.GridFor(pathingType);
+				var grid = PawnPathingCache.GridFor(pawn);
 				if (grid != null && !grid.CanEnterCell(pawn.Position))
 				{
 					Region region = ClosestRegionWithSafeTerrain(pawn, grid, out IntVec3 targetCell);
 					if (region != null)
 					{
-						__result = JobMaker.MakeJob(Jobs.TPK_GotoSafeTerrain, targetCell);
+						// ToDo this job is causing NREs in RegionCostCalculator.GetRegionDistance. Investigate and enable. 
+						// __result = JobMaker.MakeJob(Jobs.TPK_GotoSafeTerrain, targetCell);
 					}
 				}
 			}

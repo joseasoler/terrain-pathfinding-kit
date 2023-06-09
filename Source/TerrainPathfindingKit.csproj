@@ -19,15 +19,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Include="Caches\PawnPathingCache.cs" />
+		<Compile Include="Caches\PawnPathingTypeUtil.cs" />
+		<Compile Include="Caches\TerrainPathingCache.cs" />
 		<Compile Include="CommonGrids\FireGrid.cs" />
 		<Compile Include="CommonGrids\ThingsGrid.cs" />
 		<Compile Include="DefOfs\Jobs.cs" />
 		<Compile Include="DefOfs\Terrains.cs" />
-		<Compile Include="Getter.cs" />
 		<Compile Include="Mod\TerrainPathfindingKit.cs" />
 		<Compile Include="Patches\AvoidGrid_Regenerate.cs" />
 		<Compile Include="Patches\Fire_RecalcPathsOnAndAroundMe.cs" />
 		<Compile Include="Patches\JobGiver_Wander_TryGiveJob.cs" />
+		<Compile Include="Patches\PawnCaching\Pawn_Despawn.cs" />
+		<Compile Include="Patches\PawnCaching\Pawn_SpawnSetup.cs" />
 		<Compile Include="Patches\PawnDestinationReservationManager_CanReserve.cs" />
 		<Compile Include="Patches\Reachability_CanReach.cs" />
 		<Compile Include="Patches\PathFinder_CurrentGrid_Util.cs" />
@@ -44,7 +48,6 @@
 		<Compile Include="PathGrids\TerrainPathGrid.cs" />
 		<Compile Include="Logging.cs" />
 		<Compile Include="PathingExtension.cs" />
-		<Compile Include="PawnPathingType.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 		<Compile Include="TerrainPathing.cs" />
 		<Compile Include="PathingType.cs" />

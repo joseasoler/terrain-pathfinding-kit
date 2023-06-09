@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimWorld;
+using TerrainPathfindingKit.Caches;
 using Verse;
 
 namespace TerrainPathfindingKit.Patches
@@ -9,9 +10,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static void Postfix(ref ByteGrid __result, Pawn p)
 		{
-			var terrainPathing = Getter.GetTerrainPathing(p.Map);
-			var pathingType = terrainPathing.TypeFor(p);
-			var grid = terrainPathing.GridFor(pathingType);
+			var grid = PawnPathingCache.GridFor(p);
 			if (grid != null)
 			{
 				__result = grid.AvoidGrid(__result);

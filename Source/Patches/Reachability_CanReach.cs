@@ -1,4 +1,5 @@
 using HarmonyLib;
+using TerrainPathfindingKit.Caches;
 using Verse;
 using Verse.AI;
 
@@ -16,9 +17,7 @@ namespace TerrainPathfindingKit.Patches
 		{
 			if (__result && traverseParams.pawn != null)
 			{
-				var terrainPathing = Getter.GetTerrainPathing(___map);
-				var pathingType = terrainPathing.TypeFor(traverseParams.pawn);
-				var grid = terrainPathing.GridFor(pathingType);
+				var grid = PawnPathingCache.GridFor(traverseParams.pawn);
 				if (grid != null)
 				{
 					__result = grid.CanEnterCell(dest.Cell);

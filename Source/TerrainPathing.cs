@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TerrainPathfindingKit.Caches;
 using TerrainPathfindingKit.CommonGrids;
 using TerrainPathfindingKit.PathGrids;
 using Verse;
@@ -13,8 +14,6 @@ namespace TerrainPathfindingKit
 	{
 		private readonly FireGrid _fires;
 		private readonly ThingsGrid _things;
-
-		private PawnPathingType _pawnPathing = new PawnPathingType();
 
 		private AquaticPathGrid _aquaticGrid;
 
@@ -40,7 +39,7 @@ namespace TerrainPathfindingKit
 		/// </summary>
 		public override void FinalizeInit()
 		{
-			Getter.AddMap(map, this);
+			TerrainPathingCache.Add(map, this);
 			RecalculateAllPerceivedPathCosts();
 		}
 
@@ -49,12 +48,7 @@ namespace TerrainPathfindingKit
 		/// </summary>
 		public override void MapRemoved()
 		{
-			Getter.RemoveMap(map);
-		}
-
-		public PathingType TypeFor(Pawn pawn)
-		{
-			return _pawnPathing.For(pawn);
+			TerrainPathingCache.Remove(map);
 		}
 
 		/// <summary>

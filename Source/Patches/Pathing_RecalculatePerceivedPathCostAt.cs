@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using TerrainPathfindingKit.Caches;
 using Verse;
 using Verse.AI;
 
@@ -15,7 +16,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static void TerrainRecalculatePerceivedPathCostAt(Pathing instance, IntVec3 c, ref bool haveNotified)
 		{
-			Getter.GetTerrainPathing(instance.Normal.map)?.RecalculatePerceivedPathCostAt(c, ref haveNotified);
+			TerrainPathingCache.Get(instance.Normal.map)?.RecalculatePerceivedPathCostAt(c, ref haveNotified);
 		}
 
 		internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

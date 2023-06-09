@@ -1,4 +1,5 @@
 using HarmonyLib;
+using TerrainPathfindingKit.Caches;
 using Verse;
 using Verse.AI;
 
@@ -12,9 +13,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static bool Prefix(ref bool __result, IntVec3 c, Pawn searcher, bool draftedOnly)
 		{
-			var terrainPathing = Getter.GetTerrainPathing(searcher.Map);
-			var pathingType = terrainPathing.TypeFor(searcher);
-			var grid = terrainPathing.GridFor(pathingType);
+			var grid = PawnPathingCache.GridFor(searcher);
 			if (grid != null && !grid.CanEnterCell(c))
 			{
 				__result = false;

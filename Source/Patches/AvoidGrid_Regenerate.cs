@@ -1,4 +1,5 @@
 using HarmonyLib;
+using TerrainPathfindingKit.Caches;
 using Verse.AI;
 
 namespace TerrainPathfindingKit.Patches
@@ -11,7 +12,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static void Postfix(AvoidGrid __instance)
 		{
-			Getter.GetTerrainPathing(__instance.map)?.RegenerateAvoidGrids();
+			TerrainPathingCache.Get(__instance.map)?.RegenerateAvoidGrids();
 		}
 	}
 }

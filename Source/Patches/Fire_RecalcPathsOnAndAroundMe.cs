@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimWorld;
+using TerrainPathfindingKit.Caches;
 
 namespace TerrainPathfindingKit.Patches
 {
@@ -11,7 +12,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static void Prefix(Fire __instance)
 		{
-			Getter.GetTerrainPathing(__instance.Map).UpdateFire(__instance.Position, __instance.Spawned);
+			TerrainPathingCache.Get(__instance.Map).UpdateFire(__instance.Position, __instance.Spawned);
 		}
 	}
 }

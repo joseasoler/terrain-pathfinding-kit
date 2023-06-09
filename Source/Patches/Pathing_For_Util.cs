@@ -1,3 +1,4 @@
+using TerrainPathfindingKit.Caches;
 using Verse;
 using Verse.AI;
 
@@ -10,21 +11,18 @@ namespace TerrainPathfindingKit.Patches
 	{
 		public static bool Prefix(Pathing instance, ref PathingContext result, Pawn pawn)
 		{
-			var terrainPathing = Getter.GetTerrainPathing(instance.Normal.map);
-			if (terrainPathing == null)
+			PathingContext context = null;
+			if (pawn != null)
 			{
-				return true;
+				context = PawnPathingCache.ContextFor(pawn);
+
+				if (context != null)
+				{
+					result = context;
+				}
 			}
 
-			var pathingType = terrainPathing.TypeFor(pawn);
-			var context = terrainPathing.ContextFor(pathingType);
-			if (context == null)
-			{
-				return true;
-			}
-
-			result = context;
-			return false;
+			return context == null;
 		}
 	}
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using TerrainPathfindingKit.Caches;
 using Verse;
 using Verse.AI;
 
@@ -15,11 +16,8 @@ namespace TerrainPathfindingKit.Patches
 	{
 		internal static int TerrainCalculatedCostAt(Map map, Pawn pawn, IntVec3 cell)
 		{
-			var terrainPathing = Getter.GetTerrainPathing(map);
 			var prevCell = pawn.Position;
-
-			var type = terrainPathing.TypeFor(pawn);
-			var grid = terrainPathing.GridFor(type);
+			var grid = PawnPathingCache.GridFor(pawn);
 			return grid?.CostToMoveIntoCell(cell, prevCell) ??
 			       map.pathing.For(pawn).pathGrid.CalculatedCostAt(cell, false, prevCell);
 		}

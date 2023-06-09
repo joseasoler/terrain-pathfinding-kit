@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using TerrainPathfindingKit.Caches;
 using Verse;
 using Verse.AI;
 
@@ -18,9 +19,7 @@ namespace TerrainPathfindingKit.Patches
 	{
 		public static ByteGrid TerrainAvoidGrid(Map map, Pawn pawn)
 		{
-			var terrainPathing = Getter.GetTerrainPathing(map);
-			var pathingType = terrainPathing.TypeFor(pawn);
-			var grid = terrainPathing.GridFor(pathingType);
+			var grid = PawnPathingCache.GridFor(pawn);
 			return grid != null ? grid.AvoidGrid(map.avoidGrid.Grid) : map.avoidGrid.Grid;
 		}
 

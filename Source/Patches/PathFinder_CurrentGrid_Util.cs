@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using TerrainPathfindingKit.Caches;
 using TerrainPathfindingKit.PathGrids;
 using Verse;
 
@@ -17,14 +18,10 @@ namespace TerrainPathfindingKit.Patches
 		public static void SetCurrentGrid(Pawn pawn)
 		{
 			_currentGrid = null;
-			if (pawn == null)
+			if (pawn != null)
 			{
-				return;
+				_currentGrid = PawnPathingCache.GridFor(pawn);
 			}
-
-			var terrainPathing = Getter.GetTerrainPathing(pawn.Map);
-			var pathingType = terrainPathing.TypeFor(pawn);
-			_currentGrid = terrainPathing.GridFor(pathingType);
 		}
 
 		public static int TerrainExtraDraftedPerceivedPathCost(TerrainDef terrainDef)
@@ -36,7 +33,7 @@ namespace TerrainPathfindingKit.Patches
 		{
 			return _currentGrid?.ExtraNonDraftedPerceivedPathCost(terrainDef) ?? terrainDef.extraNonDraftedPerceivedPathCost;
 		}
-		
+
 		public static List<CodeInstruction> ReplacePerceivedPathCosts(List<CodeInstruction> instructions, string label)
 		{
 			// Replace calls to extraDraftedPerceivedPathCost with custom terrain code.
@@ -52,7 +49,7 @@ namespace TerrainPathfindingKit.Patches
 				name: nameof(TerrainDef.extraNonDraftedPerceivedPathCost));
 			MethodInfo terrainExtraNonDraftedPerceivedPathCostMethod = AccessTools.Method(typeof(PathFinder_CurrentGrid_Util),
 				nameof(TerrainExtraNonDraftedPerceivedPathCost));
-	
+
 			var newInstructions = new List<CodeInstruction>();
 			foreach (var instruction in instructions)
 			{
@@ -71,7 +68,7 @@ namespace TerrainPathfindingKit.Patches
 					newInstructions.Add(instruction);
 				}
 			}
-			
+
 			if (!replacedExtraDraftedPerceivedPathCost ||
 			    !replacedExtraNonDraftedPerceivedPathCost)
 			{
